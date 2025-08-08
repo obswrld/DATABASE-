@@ -21,7 +21,11 @@ FROM WAREHOUSE, INVENTORY
 WHERE WarehouseCity NOT IN ("ATLANTA", "BANGO", "CHICARGO WAREHOUSE");
 
 -- 2.44 --
+SELECT CONCAT(SKU_Description + "is Located in" + WarehouseCity)
+AS ItemLocation
+FROM WAREHOUSE, INVENTORY;
 
+-- 2.45 -- 
 
 
 
