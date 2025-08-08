@@ -21,12 +21,20 @@ FROM WAREHOUSE, INVENTORY
 WHERE WarehouseCity NOT IN ("ATLANTA", "BANGO", "CHICARGO WAREHOUSE");
 
 -- 2.44 --
-SELECT CONCAT(SKU_Description + "is Located in" + WarehouseCity)
+SELECT CONCAT(SKU_Description , "is Located in" , WarehouseCity)
 AS ItemLocation
 FROM WAREHOUSE, INVENTORY;
 
 -- 2.45 -- 
-
+SELECT SKU, SKU_Description, WarehouseID
+FROM INVENTORY
+WHERE WarehouseID IN (
+	SELECT WarehouseID
+    
+	FROM Warehouse
+    
+    WHERE Manager = "Lucille Smith"
+);
 
 
 
