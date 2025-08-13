@@ -49,16 +49,30 @@
 -- WHERE Manager = "Lucille Smith";
 
 -- 2.48 --
-SELECT WarehouseID, AVG(QuantityOnHand) AS AverageQunatityOnHand
-FROM INVENTORY
-WHERE WarehouseID IN (
-	SELECT warehouseID
-    
-    FROM WAREHOUSE
-    
-    WHERE Manager = "Lucille Smith"
-)
+-- SELECT WarehouseID, AVG(QuantityOnHand) AS AverageQunatityOnHand
+-- FROM INVENTORY
+-- WHERE WarehouseID IN (
+-- 	SELECT warehouseID
+--     
+--     FROM WAREHOUSE
+--     
+--     WHERE Manager = "Lucille Smith"
+-- )
 
-GROUP BY WarehouseID;
+-- GROUP BY WarehouseID;
+
+-- 2.49 --
+-- SELECT INVENTORY.WarehouseID, AVG(QuantityOnHand) AS AverageQuantityOnHand
+-- FROM INVENTORY, WAREHOUSE
+-- WHERE INVENTORY.warehouseID = WAREHOUSE.warehouseID
+-- AND WAREHOUSE.Manager = "Lucille Smith"
+-- GROUP BY INVENTORY.WarehouseID;
+
+-- 2.50 --
+SELECT INVENTORY.WarehouseID, AVG(QuantityOnHand) AS AverageQuantityOnHand
+FROM INVENTORY
+JOIN Warehouse ON INVENTORY.warehouseID = WAREHOUSE.warehouseID
+WHERE WAREHOUSE.Manager = "Lucille Smith"
+GROUP BY INVENTORY.WarehouseID;
 
 
